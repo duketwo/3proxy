@@ -1,10 +1,14 @@
 version: '2'
 
 services:
-  serviio:
+  3proxy:
     restart: always
-    image: riftbit/3proxy:stable
-    ports:
-     - "3128:3128/tcp"
+    build: ./
+    environment:
+     - PROXY_LOGIN=admin
+     - PROXY_PASSWORD=supersecurepasswordXD
+    network_mode: "host"
+#    ports:
+#     - "192.168.255.50:8080:8080/tcp"
     volumes:
-     - /srv/docker/3proxy:/etc/3proxy/
+     - ./cfg:/etc/3proxy/cfg

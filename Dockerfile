@@ -4,7 +4,7 @@ FROM alpine:latest as builder
 
 ARG VERSION=0.8.13
 
-RUN apk add --update alpine-sdk wget bash && \
+RUN apk add --update alpine-sdk wget bash linux-headers && \
     cd / && \
     wget -q  https://github.com/z3APA3A/3proxy/archive/${VERSION}.tar.gz && \
     tar -xf ${VERSION}.tar.gz && \
